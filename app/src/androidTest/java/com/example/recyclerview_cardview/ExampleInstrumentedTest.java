@@ -1,4 +1,4 @@
-package tw.edu.ncku.igem.eduncku;
+package com.example.recyclerview_cardview;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("tw.edu.ncku.igem.eduncku", appContext.getPackageName());
+        assertEquals("com.example.recyclerview_cardview", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package tw.edu.ncku.igem.eduncku;
+package com.example.recyclerview_cardview;
 
 import org.junit.Test;
 
