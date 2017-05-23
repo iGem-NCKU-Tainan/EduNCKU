@@ -21,7 +21,7 @@ public class GameSnake extends Activity {
     Thread gameThread;
     Boolean isGameThreadStop = true;
     GameObj backimg;
-    int gameFPS = 25;
+    int gameFPS = 5000;
     KeyHandler keyHandler = new KeyHandler();
     TouchPoint touchPoint = new TouchPoint();
     //PowerManager.WakeLock wakeLock;
