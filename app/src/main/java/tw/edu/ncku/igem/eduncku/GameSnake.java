@@ -14,6 +14,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class GameSnake extends Activity {
     SurfaceView gameSurfaceView;
@@ -30,9 +31,15 @@ public class GameSnake extends Activity {
     AppleObj apple;
     GameStat gameStat;
 
+    private Toast toast;
+
+    private int eaten_apple_num = 0;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        toast = Toast.makeText(this, "", Toast.LENGTH_LONG);
 
         // 隱藏狀態列
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -295,6 +302,19 @@ public class GameSnake extends Activity {
             // 增加時間
             gameStat.addTime(3000);
 
+            // Record the num    of apples have been eaten
+            eaten_apple_num++;
+            switch (eaten_apple_num){
+                case 1:
+                    showTip("The First apple u have got!!");
+                    break;
+                case 5:
+                    showTip("Bravo! U got the fifth ones");
+                    break;
+                default:
+                    break;
+            }
+
             // 蘋果位置變更
             while (snake.isEatApple(apple))
                 apple.random(backimg.getRect());
@@ -397,6 +417,11 @@ public class GameSnake extends Activity {
         Paint p = new Paint();
         p.setARGB(100, 0, 0, 0);
         backimg.draw(canvas);
+    }
+
+    private void showTip(final String str) {
+        toast.setText(str);
+        toast.show();
     }
 
 }
