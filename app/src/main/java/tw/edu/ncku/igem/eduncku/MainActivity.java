@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
     static ArrayList<Boolean> Achievement = new ArrayList<Boolean>();
 
     private Button snake_btn;
-    private  Button qa_btn;
+    private Button qa_btn;
+    private Button achievement_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         snake_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 intent.setClass(MainActivity.this, GameSnake.class);
                 startActivityForResult(intent, 1);
                 //startActivity(intent);
@@ -39,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+
+        achievement_btn = (Button) findViewById(R.id.achievement_btn);
+        achievement_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Achievement.class);
+                startActivity(intent);
             }
         });
 

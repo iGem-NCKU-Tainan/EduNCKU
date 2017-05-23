@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GameSnake"></activity>
+        <activity android:name=".GameSnake" />
+        <activity android:name=".Achievement"></activity>
     </application>
 
 </manifest>
