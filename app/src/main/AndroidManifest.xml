@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameSnake" />
-        <activity android:name=".Achievement"></activity>
+        <activity android:name=".Achievement" />
+        <activity android:name=".QA"></activity>
     </application>
 
 </manifest>
