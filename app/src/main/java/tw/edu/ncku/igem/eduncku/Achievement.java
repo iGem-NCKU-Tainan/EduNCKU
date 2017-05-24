@@ -16,6 +16,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static tw.edu.ncku.igem.eduncku.MainActivity.Achievement_array;
+
 public class Achievement extends AppCompatActivity {
 
     @Override
@@ -23,9 +25,11 @@ public class Achievement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement);
         ArrayList<String> myDataset = new ArrayList<>();
-        for(int i = 0; i < 5; i++){
-            myDataset.add(i + "");
-        }
+        myDataset.add("吃掉一個蘋果");
+        myDataset.add("吃掉兩個蘋果");
+        myDataset.add("吃掉三個蘋果");
+        myDataset.add("吃掉四個蘋果");
+        myDataset.add("吃掉五個蘋果");
         MyAdapter myAdapter = new MyAdapter(myDataset);
         RecyclerView mList = (RecyclerView) findViewById(R.id.list_view);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -67,11 +71,10 @@ public class Achievement extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             holder.mTextView.setText(mData.get(position));
-            if(position == 0) {
+            if(Achievement_array[position] == true) {
                 holder.mCardView.setCardBackgroundColor(Color.parseColor("#B8F1CC"));
             }
         }
-
         @Override
         public int getItemCount() {
             return mData.size();

@@ -7,13 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    static ArrayList<Boolean> Achievement = new ArrayList<Boolean>();
-    
+    static boolean Achievement_array[] = {true,true,false,false,false};
     private Button snake_btn;
     private Button qa_btn;
     private Button achievement_btn;
