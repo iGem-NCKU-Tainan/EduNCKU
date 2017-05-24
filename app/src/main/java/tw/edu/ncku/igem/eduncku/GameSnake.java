@@ -15,6 +15,7 @@ import android.view.SurfaceView;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
+import java.util.ArrayList;
 
 public class GameSnake extends Activity {
     SurfaceView gameSurfaceView;
@@ -41,6 +42,8 @@ public class GameSnake extends Activity {
 
         toast = Toast.makeText(this, "", Toast.LENGTH_LONG);
 
+
+
         // 隱藏狀態列
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -53,6 +56,7 @@ public class GameSnake extends Activity {
         // 電源管理服務取得
         //PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         //wakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK, "GameSnake PowerControl");
+
 
         gameSurfaceView = new SurfaceView(this);
         surfaceHolder = gameSurfaceView.getHolder();

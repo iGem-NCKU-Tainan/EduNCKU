@@ -16,6 +16,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static tw.edu.ncku.igem.eduncku.MainActivity.Achievement_array;
+
 public class Achievement extends AppCompatActivity {
 
     @Override
@@ -69,11 +71,10 @@ public class Achievement extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             holder.mTextView.setText(mData.get(position));
-            if(position == 0) {
+            if(Achievement_array[position] == true) {
                 holder.mCardView.setCardBackgroundColor(Color.parseColor("#B8F1CC"));
             }
         }
-
         @Override
         public int getItemCount() {
             return mData.size();
