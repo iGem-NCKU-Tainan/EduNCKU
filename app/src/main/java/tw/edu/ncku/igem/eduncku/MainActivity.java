@@ -10,9 +10,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+
+
 public class MainActivity extends AppCompatActivity {
 
-    static ArrayList<Boolean> Achievement = new ArrayList<Boolean>();
+    static ArrayList<Boolean> Achievement_array;
 
     private Button snake_btn;
     private Button qa_btn;

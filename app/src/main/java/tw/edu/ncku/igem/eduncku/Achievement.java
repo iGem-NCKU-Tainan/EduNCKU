@@ -23,9 +23,11 @@ public class Achievement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement);
         ArrayList<String> myDataset = new ArrayList<>();
-        for(int i = 0; i < 5; i++){
-            myDataset.add(i + "");
-        }
+        myDataset.add("吃掉一個蘋果");
+        myDataset.add("吃掉兩個蘋果");
+        myDataset.add("吃掉三個蘋果");
+        myDataset.add("吃掉四個蘋果");
+        myDataset.add("吃掉五個蘋果");
         MyAdapter myAdapter = new MyAdapter(myDataset);
         RecyclerView mList = (RecyclerView) findViewById(R.id.list_view);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
