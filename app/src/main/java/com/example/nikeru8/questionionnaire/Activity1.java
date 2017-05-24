@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class Activity1 extends AppCompatActivity
 {
     public static final String Q1_ANSWER_KEY = "Q1";
-    public static int answer_array[] = {1,2,2};
+    public static int answer_array[] = {1,2,3};//The answer to the question.
     private TextView m_tv_no;
     private TextView m_tv_question;
     private Button m_radio_a;
@@ -25,7 +25,8 @@ public class Activity1 extends AppCompatActivity
     private TextView m_tv_check_c1;
     private int answer = 1;
     private CharSequence m_answer;
-    static int question_number = 1;
+    static int question_number = 1;//the current question
+    final int the_number_of_question = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -34,8 +35,11 @@ public class Activity1 extends AppCompatActivity
         setContentView(R.layout.activity_1);
         init();
         Intent intent = getIntent();
-        if(intent != null){
-            answer = intent.getIntExtra("",0);
+        if(question_number == 1){
+            answer = answer_array[0];
+        }
+        else if(intent != null){
+            answer = intent.getIntExtra("answer",0);
         }
     }
 
@@ -102,9 +106,14 @@ public class Activity1 extends AppCompatActivity
     {
         question_number++;
         // 建立新 Intent: new Intent( 來源 , 目的)
-        Intent intent = new Intent(this, Activity1.class);
-        intent.putExtra("answer",answer_array[question_number]);
-        startActivity(intent);
-        finish();
+        if(question_number < the_number_of_question) {
+            Intent intent = new Intent(this, Activity1.class);
+            intent.putExtra("answer", answer_array[question_number - 1]);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            finish();
+        }
     }
 }
