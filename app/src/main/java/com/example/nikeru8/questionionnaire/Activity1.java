@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class Activity1 extends AppCompatActivity
 {
     public static final String Q1_ANSWER_KEY = "Q1";
-
+    public static int answer_array[] = {1,2,2};
     private TextView m_tv_no;
     private TextView m_tv_question;
     private Button m_radio_a;
@@ -24,8 +24,8 @@ public class Activity1 extends AppCompatActivity
     private TextView m_tv_check_c0;
     private TextView m_tv_check_c1;
     private int answer = 1;
-
     private CharSequence m_answer;
+    static int question_number = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -33,6 +33,10 @@ public class Activity1 extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
         init();
+        Intent intent = getIntent();
+        if(intent != null){
+            answer = intent.getIntExtra("",0);
+        }
     }
 
     private void init()
@@ -48,8 +52,7 @@ public class Activity1 extends AppCompatActivity
         m_radio_c = (Button)findViewById(R.id.radio_c);
         m_tv_check_c0 = (TextView)findViewById(R.id.tv_check_c0);
         m_tv_check_c1 = (TextView)findViewById(R.id.tv_check_c1);
-
-        m_tv_no.setText("1");
+        m_tv_no.setText(Integer.toString(question_number));
         m_tv_question.setText(Html.fromHtml(getString(R.string.question_1)));
         m_radio_a.setText(Html.fromHtml(getString(R.string.question_1_radio_a)));
         m_radio_b.setText(Html.fromHtml(getString(R.string.question_1_radio_b)));
@@ -58,18 +61,36 @@ public class Activity1 extends AppCompatActivity
 
     public void click_a(View view)
     {
-        m_tv_check_a0.setVisibility(View.VISIBLE);
-        m_tv_check_a1.setVisibility(View.GONE);
+        if(answer == 1){
+            m_tv_check_a0.setVisibility(View.VISIBLE);
+            m_tv_check_a1.setVisibility(View.GONE);
+        }
+        else{
+            m_tv_check_a0.setVisibility(View.GONE);
+            m_tv_check_a1.setVisibility(View.VISIBLE);
+        }
     }
     public void click_b(View view)
     {
-        m_tv_check_b0.setVisibility(View.GONE);
-        m_tv_check_b1.setVisibility(View.VISIBLE);
+        if(answer == 2){
+            m_tv_check_b0.setVisibility(View.VISIBLE);
+            m_tv_check_b1.setVisibility(View.GONE);
+        }
+        else{
+            m_tv_check_b0.setVisibility(View.GONE);
+            m_tv_check_b1.setVisibility(View.VISIBLE);
+        }
     }
     public void click_c(View view)
     {
-        m_tv_check_c0.setVisibility(View.GONE);
-        m_tv_check_c1.setVisibility(View.VISIBLE);
+        if(answer == 3){
+            m_tv_check_c0.setVisibility(View.VISIBLE);
+            m_tv_check_c1.setVisibility(View.GONE);
+        }
+        else{
+            m_tv_check_c0.setVisibility(View.GONE);
+            m_tv_check_c1.setVisibility(View.VISIBLE);
+        }
     }
 
     //返回上一頁
@@ -79,9 +100,11 @@ public class Activity1 extends AppCompatActivity
     // 按下 NEXT
     public void next(View view)
     {
+        question_number++;
         // 建立新 Intent: new Intent( 來源 , 目的)
-        Intent intent = new Intent(this, Activity2.class);
+        Intent intent = new Intent(this, Activity1.class);
+        intent.putExtra("answer",answer_array[question_number]);
         startActivity(intent);
+        finish();
     }
-
 }
