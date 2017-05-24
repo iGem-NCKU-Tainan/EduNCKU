@@ -12,6 +12,26 @@ public class Activity1 extends AppCompatActivity
 {
     public static final String Q1_ANSWER_KEY = "Q1";
     public static int answer_array[] = {1,2,3};//The answer to the question.
+    public static String question_content[][] = {
+            {
+                    "請問飛機可以飛上天運用到的原理是?",
+                    "白努利定律",
+                    "牛頓定律",
+                    "愛因斯坦相對論"
+            },
+            {
+                    "請問這幾次教你們的人是什麼團隊?",
+                    "這群人",
+                    "iGEM NCKU",
+                    "學校老師"
+            },
+            {
+                    "請問製作眼鏡的所用的材料是?",
+                    "凸透鏡",
+                    "凹透鏡",
+                    "以上皆非"
+            }
+    };
     private TextView m_tv_no;
     private TextView m_tv_question;
     private Button m_radio_a;
@@ -57,10 +77,10 @@ public class Activity1 extends AppCompatActivity
         m_tv_check_c0 = (TextView)findViewById(R.id.tv_check_c0);
         m_tv_check_c1 = (TextView)findViewById(R.id.tv_check_c1);
         m_tv_no.setText(Integer.toString(question_number));
-        m_tv_question.setText(Html.fromHtml(getString(R.string.question_1)));
-        m_radio_a.setText(Html.fromHtml(getString(R.string.question_1_radio_a)));
-        m_radio_b.setText(Html.fromHtml(getString(R.string.question_1_radio_b)));
-        m_radio_c.setText(Html.fromHtml(getString(R.string.question_1_radio_c)));
+        m_tv_question.setText(question_content[question_number - 1][0]);
+        m_radio_a.setText(question_content[question_number - 1][1]);
+        m_radio_b.setText(question_content[question_number - 1][2]);
+        m_radio_c.setText(question_content[question_number - 1][3]);
     }
 
     public void click_a(View view)
@@ -106,7 +126,7 @@ public class Activity1 extends AppCompatActivity
     {
         question_number++;
         // 建立新 Intent: new Intent( 來源 , 目的)
-        if(question_number < the_number_of_question) {
+        if(question_number <= the_number_of_question) {
             Intent intent = new Intent(this, Activity1.class);
             intent.putExtra("answer", answer_array[question_number - 1]);
             startActivity(intent);
