@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     static ArrayList<Boolean> Achievement = new ArrayList<Boolean>();
-
+    
     private Button snake_btn;
     private Button qa_btn;
     private Button achievement_btn;
