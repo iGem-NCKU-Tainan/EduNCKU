@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
 
-    static ArrayList<Boolean> Achievement = new ArrayList<Boolean>();
+    //static ArrayList<Boolean> Achievement = new ArrayList<Boolean>();
 
     static ArrayList<Boolean> Achievement_array = new ArrayList<Boolean>();
 
@@ -24,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Achievement_array.add(true);
+        Achievement_array.add(false);
+        Achievement_array.add(false);
+        Achievement_array.add(false);
+        Achievement_array.add(false);
 
         final Intent intent = new Intent();
 
