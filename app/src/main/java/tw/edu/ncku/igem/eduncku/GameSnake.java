@@ -303,6 +303,7 @@ public class GameSnake extends Activity {
         if (snake.isEatApple(apple)) {
             // 增加長度
             snake.add();
+            showTip("The length of snake have been added");
             // 增加時間
             gameStat.addTime(3000);
 

@@ -12,20 +12,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static tw.edu.ncku.igem.eduncku.MainActivity.Achievement_array;
+
 public class Achievement extends AppCompatActivity {
 
+    private Toast toast = Toast.makeText(this, "", Toast.LENGTH_LONG);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement);
-        ArrayList<String> myDataset = new ArrayList<>();
-        for(int i = 0; i < 5; i++){
-            myDataset.add(i + "");
-        }
+        ArrayList<String> myDataset = new ArrayList<String>();
+        myDataset.add("吃掉一個蘋果");
+        myDataset.add("吃掉兩個蘋果");
+        myDataset.add("吃掉三個蘋果");
+        myDataset.add("吃掉四個蘋果");
+        myDataset.add("吃掉五個蘋果");
         MyAdapter myAdapter = new MyAdapter(myDataset);
         RecyclerView mList = (RecyclerView) findViewById(R.id.list_view);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -66,15 +72,24 @@ public class Achievement extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.mTextView.setText(mData.get(position));
-            if(position == 0) {
-                holder.mCardView.setCardBackgroundColor(Color.parseColor("#B8F1CC"));
-            }
-        }
 
+            /*有錯誤
+                    if (position != 0){
+                holder.mTextView.setText(mData.get(position));
+                if(MainActivity.Achievement_array.get(position) == true) {
+                    holder.mCardView.setCardBackgroundColor(Color.parseColor("#B8F1CC"));
+                }
+            }
+        */
+        }
         @Override
         public int getItemCount() {
             return mData.size();
+        }
+
+        private void showTip(final String str) {
+            toast.setText(str);
+            toast.show();
         }
     }
 }

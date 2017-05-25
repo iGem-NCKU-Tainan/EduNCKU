@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
+
     static ArrayList<Boolean> Achievement = new ArrayList<Boolean>();
+
+    static ArrayList<Boolean> Achievement_array = new ArrayList<Boolean>();
 
     private Button snake_btn;
     private Button qa_btn;
@@ -38,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         qa_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, QA.class);
+                startActivity(intent);
             }
         });
 
