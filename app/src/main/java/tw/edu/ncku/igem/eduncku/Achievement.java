@@ -20,7 +20,7 @@ import java.util.List;
 import static tw.edu.ncku.igem.eduncku.MainActivity.Achievement_array;
 
 public class Achievement extends AppCompatActivity {
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

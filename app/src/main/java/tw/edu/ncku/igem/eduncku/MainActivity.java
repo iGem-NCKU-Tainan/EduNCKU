@@ -12,10 +12,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    //static ArrayList<Boolean> Achievement = new ArrayList<Boolean>();
-
-    static ArrayList<Boolean> Achievement_array = new ArrayList<Boolean>();
+    static ArrayList<Boolean> Achievement_array = new ArrayList<>();
 
     private Button snake_btn;
     private Button qa_btn;
@@ -29,16 +26,13 @@ public class MainActivity extends AppCompatActivity {
         Achievement_array.add(false);
         Achievement_array.add(false);
         Achievement_array.add(false);
-
         final Intent intent = new Intent();
-
         snake_btn = (Button) findViewById(R.id.snake_btn);
         snake_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 intent.setClass(MainActivity.this, GameSnake.class);
                 startActivityForResult(intent, 1);
-                //startActivity(intent);
             }
         });
 
