@@ -9,8 +9,10 @@ import android.widget.TextView;
 
 public class QA extends AppCompatActivity
 {
-    public static final String Q1_ANSWER_KEY = "Q1";
+    //public static final String Q1_ANSWER_KEY = "Q1";
+
     public static int answer_array[] = {1,2,3};//The answer to the question.
+    public static int correct_question_number;
     public static String question_content[][] = {
             {
                     "請問飛機可以飛上天運用到的原理是?",
@@ -42,7 +44,8 @@ public class QA extends AppCompatActivity
     private Button m_radio_c;
     private TextView m_tv_check_c0;
     private TextView m_tv_check_c1;
-    private int answer = 1;
+    private int answer = 0;
+    private int count = 0;
     private CharSequence m_answer;
     static int question_number = 1;//the current question
     final int the_number_of_question = 3;
@@ -52,10 +55,11 @@ public class QA extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qa);
-        init();
+        init();//initialize
         Intent intent = getIntent();
         if(question_number == 1){
-            answer = answer_array[0];
+            answer = answer_array[0];//set the answer of the first question
+            correct_question_number = 0;
         }
         else if(intent != null){
             answer = intent.getIntExtra("answer",0);
@@ -84,9 +88,13 @@ public class QA extends AppCompatActivity
 
     public void click_a(View view)
     {
+        count++;//Every time clinking a button the count will increase by 1
         if(answer == 1){
             m_tv_check_a0.setVisibility(View.VISIBLE);
             m_tv_check_a1.setVisibility(View.GONE);
+            if(count == 1){//Answer the correct answer
+                correct_question_number++;
+            }
         }
         else{
             m_tv_check_a0.setVisibility(View.GONE);
@@ -95,9 +103,13 @@ public class QA extends AppCompatActivity
     }
     public void click_b(View view)
     {
+        count++;
         if(answer == 2){
             m_tv_check_b0.setVisibility(View.VISIBLE);
             m_tv_check_b1.setVisibility(View.GONE);
+            if(count == 1){
+                correct_question_number++;
+            }
         }
         else{
             m_tv_check_b0.setVisibility(View.GONE);
@@ -106,9 +118,13 @@ public class QA extends AppCompatActivity
     }
     public void click_c(View view)
     {
+        count++;
         if(answer == 3){
             m_tv_check_c0.setVisibility(View.VISIBLE);
             m_tv_check_c1.setVisibility(View.GONE);
+            if(count == 1){
+                correct_question_number++;
+            }
         }
         else{
             m_tv_check_c0.setVisibility(View.GONE);
@@ -132,6 +148,7 @@ public class QA extends AppCompatActivity
             finish();
         }
         else{
+            question_number = 1;
             finish();
         }
     }

@@ -28,5 +28,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/achievement_btn"
             android:text="成就系統" />
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/QA_correct_question_number"
+            />
 </LinearLayout>
