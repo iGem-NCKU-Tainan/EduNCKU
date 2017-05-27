@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="tw.edu.ncku.igem.eduncku.MainActivity">
+    tools:context="tw.edu.ncku.igem.eduncku.MainActivity"
+    android:background="@drawable/background_gradient"
+    android:weightSum="1">
         <Button
             android:textSize="20sp"
             android:layout_gravity="center_horizontal"
@@ -14,6 +16,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginBottom="@dimen/mainButtonMarginVertical"
             android:background="@color/buttonColor"
+            android:textColor="@color/buttonTextColor"
             android:id="@+id/snake_btn"
             android:text="貪吃蛇"/>
         <Button
@@ -23,6 +26,8 @@
             android:layout_height="@dimen/mainButtonHeight"
             android:layout_marginTop="@dimen/mainButtonMarginVertical"
             android:layout_marginBottom="@dimen/mainButtonMarginVertical"
+            android:background="@color/buttonColor"
+            android:textColor="@color/buttonTextColor"
             android:id="@+id/qa_btn"
             android:text="百萬小學堂"/>
 
@@ -30,8 +35,10 @@
             android:textSize="20sp"
             android:layout_gravity="center_horizontal"
             android:layout_width="@dimen/mainButtonWidth"
-            android:layout_height="@dimen/mainButtonHeight"
+            android:layout_height="50dp"
             android:layout_marginTop="@dimen/mainButtonMarginVertical"
+            android:background="@color/buttonColor"
+            android:textColor="@color/buttonTextColor"
             android:id="@+id/achievement_btn"
             android:text="成就系統" />
         <TextView
