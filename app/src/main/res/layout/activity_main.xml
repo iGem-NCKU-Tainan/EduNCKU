@@ -15,8 +15,8 @@
             android:layout_height="@dimen/mainButtonHeight"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="@dimen/mainButtonMarginVertical"
-            android:background="@color/buttonColor"
-            android:textColor="@color/buttonTextColor"
+            android:background="@color/menuButtonColor"
+            android:textColor="@color/menuButtonTextColor"
             android:id="@+id/snake_btn"
             android:text="貪吃蛇"/>
         <Button
@@ -26,8 +26,8 @@
             android:layout_height="@dimen/mainButtonHeight"
             android:layout_marginTop="@dimen/mainButtonMarginVertical"
             android:layout_marginBottom="@dimen/mainButtonMarginVertical"
-            android:background="@color/buttonColor"
-            android:textColor="@color/buttonTextColor"
+            android:background="@color/menuButtonColor"
+            android:textColor="@color/menuButtonTextColor"
             android:id="@+id/qa_btn"
             android:text="百萬小學堂"/>
 
@@ -37,10 +37,10 @@
             android:layout_width="@dimen/mainButtonWidth"
             android:layout_height="50dp"
             android:layout_marginTop="@dimen/mainButtonMarginVertical"
-            android:background="@color/buttonColor"
-            android:textColor="@color/buttonTextColor"
+            android:background="@color/menuButtonColor"
+            android:textColor="@color/menuButtonTextColor"
             android:id="@+id/achievement_btn"
-            android:text="成就系統" />
+            android:text="成就系統"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

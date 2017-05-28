@@ -3,6 +3,9 @@
     <color name="colorPrimaryDark">#2ca58d</color>
     <color name="colorPrimary">#43C6AC</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="buttonColor">#192ca58d</color>
-    <color name="buttonTextColor">#fffcf9</color>
+    <color name="menuButtonColor">#192ca58d</color>
+    <color name="menuButtonTextColor">#fffcf9</color>
+    <color name="qaButtonColor">#32fffcf9</color>
+    <color name="transparent">#00000000</color>
+    <color name="qaTextColor">#000428</color>
 </resources>

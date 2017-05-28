@@ -10,16 +10,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textColor="@color/qaTextColor"
         android:text="No."
         android:textSize="40sp" />
 
     <Button
         android:id="@+id/radio_a"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/qaButtonWidth"
+        android:layout_height="@dimen/qaButtonHeight"
         android:orientation="vertical"
-        android:textAppearance="@android:style/TextAppearance.Medium"
         android:layout_gravity="center"
+        android:background="@drawable/qaAnswerBackground"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:textColor="@color/qaTextColor"
         android:onClick="click_a"
         android:tag="A"
         tools:text="A 答案" />
@@ -50,11 +53,13 @@
 
     <Button
         android:id="@+id/radio_b"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/qaButtonWidth"
+        android:layout_height="@dimen/qaButtonHeight"
         android:orientation="vertical"
-        android:textAppearance="@android:style/TextAppearance.Medium"
         android:layout_gravity="center"
+        android:background="@drawable/qaAnswerBackground"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:textColor="@color/qaTextColor"
         android:onClick="click_b"
         android:tag="B"
         tools:text="B 答案" />
@@ -85,11 +90,13 @@
 
     <Button
         android:id="@+id/radio_c"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/qaButtonWidth"
+        android:layout_height="@dimen/qaButtonHeight"
         android:orientation="vertical"
-        android:textAppearance="@android:style/TextAppearance.Medium"
         android:layout_gravity="center"
+        android:background="@drawable/qaAnswerBackground"
+        android:textAppearance="@android:style/TextAppearance.Medium"
+        android:textColor="@color/qaTextColor"
         android:onClick="click_c"
         android:tag="C"
         tools:text="C 答案" />
@@ -124,5 +131,6 @@
         android:layout_height="wrap_content"
         android:paddingBottom="16dp"
         android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/qaTextColor"
         tools:text="這裏是題目?" />
 </merge>
