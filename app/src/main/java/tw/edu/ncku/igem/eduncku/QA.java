@@ -1,6 +1,7 @@
 package tw.edu.ncku.igem.eduncku;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -88,10 +89,13 @@ public class QA extends AppCompatActivity
 
     public void click_a(View view)
     {
-        count++;//Every time clinking a button the count will increase by 1
+        if (count == 0)
+            count++;//Every time clinking a button the count will increase by 1
+
         if(answer == 1){
             m_tv_check_a0.setVisibility(View.VISIBLE);
             m_tv_check_a1.setVisibility(View.GONE);
+            m_radio_a.setBackgroundColor(Color.GREEN);
             if(count == 1){//Answer the correct answer
                 correct_question_number++;
             }
@@ -99,14 +103,19 @@ public class QA extends AppCompatActivity
         else{
             m_tv_check_a0.setVisibility(View.GONE);
             m_tv_check_a1.setVisibility(View.VISIBLE);
+            m_radio_a.setBackgroundColor(Color.RED);
         }
     }
     public void click_b(View view)
     {
-        count++;
+        if (count == 1)
+            count++;
+
+
         if(answer == 2){
             m_tv_check_b0.setVisibility(View.VISIBLE);
             m_tv_check_b1.setVisibility(View.GONE);
+            m_radio_b.setBackgroundColor(Color.GREEN);
             if(count == 1){
                 correct_question_number++;
             }
@@ -114,14 +123,18 @@ public class QA extends AppCompatActivity
         else{
             m_tv_check_b0.setVisibility(View.GONE);
             m_tv_check_b1.setVisibility(View.VISIBLE);
+            m_radio_b.setBackgroundColor(Color.RED);
         }
     }
     public void click_c(View view)
     {
-        count++;
+        if (count == 2)
+            count++;
+
         if(answer == 3){
             m_tv_check_c0.setVisibility(View.VISIBLE);
             m_tv_check_c1.setVisibility(View.GONE);
+            m_radio_c.setBackgroundColor(Color.GREEN);
             if(count == 1){
                 correct_question_number++;
             }
@@ -129,6 +142,7 @@ public class QA extends AppCompatActivity
         else{
             m_tv_check_c0.setVisibility(View.GONE);
             m_tv_check_c1.setVisibility(View.VISIBLE);
+            m_radio_c.setBackgroundColor(Color.RED);
         }
     }
 
