@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class GameSnake extends Activity {
     SurfaceView gameSurfaceView;
@@ -23,7 +25,7 @@ public class GameSnake extends Activity {
     Thread gameThread;
     Boolean isGameThreadStop = true;
     GameObj backimg;
-    int gameFPS = 5000;
+    int gameFPS = 50;
     KeyHandler keyHandler = new KeyHandler();
     TouchPoint touchPoint = new TouchPoint();
     //PowerManager.WakeLock wakeLock;
@@ -35,7 +37,7 @@ public class GameSnake extends Activity {
     private Toast toast;
 
     private int eaten_apple_num = 0;
-
+    private Boolean gameThread_status = Boolean.TRUE;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -241,19 +243,27 @@ public class GameSnake extends Activity {
     Runnable gameRun = new Runnable() {
         public void run() {
             long delayTime = 1000 / gameFPS;
+
+
             while (!isGameThreadStop) {
                 long startTime = System.currentTimeMillis();
-                if (nowDrawWork == drawAction.game)
-                    gameUpdate();
-                draw(nowDrawWork);
-                long endTime = System.currentTimeMillis();
-                long waitTime = delayTime - (startTime - endTime);
-                if (waitTime > 0) {
-                    try {
-                        Thread.sleep(waitTime);
-                    } catch (InterruptedException e) {
+                if (nowDrawWork == drawAction.game){
+                    gameUpdate(); //  Crash occur here
+                }
+
+
+                if (gameThread_status){
+                    draw(nowDrawWork);
+                    long endTime = System.currentTimeMillis();
+                    long waitTime = delayTime - (startTime - endTime);
+                    if (waitTime > 0) {
+                        try {
+                            Thread.sleep(waitTime);
+                        } catch (InterruptedException e) {
+                        }
                     }
                 }
+
             }
         }
     };
@@ -303,7 +313,7 @@ public class GameSnake extends Activity {
         if (snake.isEatApple(apple)) {
             // 增加長度
             snake.add();
-            showTip("The length of snake have been added");
+            //showTip("The length of snake have been added");
             // 增加時間
             gameStat.addTime(3000);
 
@@ -328,8 +338,14 @@ public class GameSnake extends Activity {
         gameStat.updateScroe(snake.getLength());
 
         // 判斷是否結束遊戲
-        if (gameStat.isTimeOver())
+        if (gameStat.isTimeOver()){
+            showTip("You are dead");
             nowDrawWork = drawAction.over;
+            gameThread.interrupt();
+            gameThread = null;
+            gameThread_status = Boolean.FALSE;
+            this.finish(); // Close the Activity cuz the game is over
+        }
     }
 
     // 畫面繪圖種類
@@ -425,6 +441,7 @@ public class GameSnake extends Activity {
     }
 
     private void showTip(final String str) {
+
         toast.setText(str);
         toast.show();
     }

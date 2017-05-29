@@ -25,7 +25,7 @@ public class Achievement extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement);
-        ArrayList<String> myDataset = new ArrayList<String>();
+        ArrayList<String> myDataset = new ArrayList<>();
         myDataset.add("吃掉一個蘋果");
         myDataset.add("吃掉兩個蘋果");
         myDataset.add("吃掉三個蘋果");
@@ -75,6 +75,7 @@ public class Achievement extends AppCompatActivity {
                 if(MainActivity.Achievement_array.get(position) == true) {
                     holder.mCardView.setCardBackgroundColor(Color.parseColor("#B8F1CC"));
                 }
+
         }
         @Override
         public int getItemCount() {

@@ -10,9 +10,9 @@ import android.graphics.drawable.Drawable;
 import java.util.Random;
 
 public class AppleObj extends GameObj{
-    private Random r=new Random();
+    private Random r = new Random();
     private Rect actRect;
-    public AppleObj(Drawable drawable,Rect limitRect) {
+    public AppleObj(Drawable drawable, Rect limitRect) {
         super(drawable);
         this.actRect=limitRect;
     }
