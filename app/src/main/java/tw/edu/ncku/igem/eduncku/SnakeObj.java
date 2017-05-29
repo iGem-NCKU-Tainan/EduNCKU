@@ -272,7 +272,7 @@ public class SnakeObj {
 
         //取得頭部下次更新座標
         double dreg = head.angle * Math.PI / 180;
-        int moveDistance=6;
+        int moveDistance = 20; //////////////////////////// Control the distance per move
         dx = (float) Math.cos(dreg) * moveDistance;
         dy = (float) Math.sin(dreg) * moveDistance;
         float ndx = head.logPath[0].x + dx;

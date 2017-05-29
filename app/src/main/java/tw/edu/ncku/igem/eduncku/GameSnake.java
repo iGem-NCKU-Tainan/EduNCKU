@@ -339,7 +339,7 @@ public class GameSnake extends Activity {
 
         // 判斷是否結束遊戲
         if (gameStat.isTimeOver()){
-            showTip("You are already dead");
+            showTip("You are dead");
             nowDrawWork = drawAction.over;
             gameThread.interrupt();
             gameThread = null;
