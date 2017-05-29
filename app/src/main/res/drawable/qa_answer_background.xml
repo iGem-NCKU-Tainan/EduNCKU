@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <corners
+        android:topLeftRadius="@dimen/qaAnswerRadius"
+        android:topRightRadius="@dimen/qaAnswerRadius"
+        android:bottomLeftRadius="@dimen/qaAnswerRadius"
+        android:bottomRightRadius="@dimen/qaAnswerRadius">
+    </corners>
+
+    <stroke
+        android:width="@dimen/buttonStrokeWidth"
+        android:color="@color/qaButtonColor">
+    </stroke>
+
+    <solid
+        android:color="@color/transparent">
+    </solid>
+</shape>
