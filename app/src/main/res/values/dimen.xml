@@ -7,4 +7,5 @@
     <dimen name="qaButtonHeight">50dp</dimen>
     <dimen name="qaButtonWidth">200dp</dimen>
     <dimen name="buttonStrokeWidth">2dp</dimen>
+    <dimen name="cardViewMargin">10dp</dimen>
 </resources>
