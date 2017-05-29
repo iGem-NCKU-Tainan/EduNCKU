@@ -21,7 +21,6 @@ import static tw.edu.ncku.igem.eduncku.MainActivity.Achievement_array;
 
 public class Achievement extends AppCompatActivity {
 
-    private Toast toast = Toast.makeText(this, "", Toast.LENGTH_LONG);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,25 +71,15 @@ public class Achievement extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-
-
-
-            if (position != 0){
                 holder.mTextView.setText(mData.get(position));
                 if(MainActivity.Achievement_array.get(position) == true) {
                     holder.mCardView.setCardBackgroundColor(Color.parseColor("#B8F1CC"));
                 }
-            }
 
         }
         @Override
         public int getItemCount() {
             return mData.size();
-        }
-
-        private void showTip(final String str) {
-            toast.setText(str);
-            toast.show();
         }
     }
 }
