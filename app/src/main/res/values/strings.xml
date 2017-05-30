@@ -1,21 +1,3 @@
 <resources>
-    <string name="app_name">Questionionaire</string>
-
-    //第一題
-    <string name="question_1">請問飛機可以飛上天運用到的原理是?</string>
-    <string name="question_1_radio_a">白努利定律</string>
-    <string name="question_1_radio_b">牛頓定律</string>
-    <string name="question_1_radio_c">愛因斯坦相對論</string>
-
-    //第二題
-    <string name="question_2">請問這幾次教你們的人是什麼團隊?</string>
-    <string name="question_2_radio_a">沒有這群人</string>
-    <string name="question_2_radio_b">iGEM NCKU</string>
-    <string name="question_2_radio_c">學校老師</string>
-
-    //第三題
-    <string name="question_3">請問製作眼鏡的所用的材料是?</string>
-    <string name="question_3_radio_a">凸透鏡</string>
-    <string name="question_3_radio_b">凹透鏡</string>
-    <string name="question_3_radio_c">以上皆非</string>
+    <string name="app_name">EduNCKU</string>
 </resources>
