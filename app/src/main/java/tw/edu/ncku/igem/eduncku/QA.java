@@ -16,10 +16,10 @@ public class QA extends AppCompatActivity
     public static int correct_question_number;
     public static String question_content[][] = {
             {
-                    "請問飛機可以飛上天運用到的原理是?",
-                    "白努利定律",
-                    "牛頓定律",
-                    "愛因斯坦相對論"
+                    "請問飛機可以飛上天運用到的原理是?",//The first string is the question
+                    "白努利定律",//Choice 1
+                    "牛頓定律",//Choice 2
+                    "愛因斯坦相對論"//Choice 3
             },
             {
                     "請問這幾次教你們的人是什麼團隊?",
@@ -48,7 +48,7 @@ public class QA extends AppCompatActivity
     private int answer = 0;
     private int count = 0;
     private CharSequence m_answer;
-    static int question_number = 1;//the current question
+    static int question_number = 1;//the current question(the pointer of the current question)
     final int the_number_of_question = 3;
 
     @Override
@@ -57,12 +57,12 @@ public class QA extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qa);
         init();//initialize
-        Intent intent = getIntent();
-        if(question_number == 1){
-            answer = answer_array[0];//set the answer of the first question
-            correct_question_number = 0;
+        Intent intent = getIntent();//This activity is a self-cycling activity. It will call itself
+        if(question_number == 1){//by calling intent
+            answer = answer_array[0];//Because there's no intent at first, We
+            correct_question_number = 0;// set the answer of the first question manually.
         }
-        else if(intent != null){
+        else if(intent != null){//If there's an intent coming, we capture it by getIntExtra.
             answer = intent.getIntExtra("answer",0);
         }
     }
@@ -162,7 +162,7 @@ public class QA extends AppCompatActivity
             finish();
         }
         else{
-            question_number = 1;
+            question_number = 1;//reset the pointer of the question.
             finish();
         }
     }
