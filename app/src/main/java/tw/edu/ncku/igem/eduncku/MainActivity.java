@@ -21,8 +21,6 @@ public class MainActivity extends AppCompatActivity {
                 4. 指定path 3
                 5. 指定path 4
                 6. 指定path 5
-                7.
-                8.
         */
     static ArrayList<Boolean> Achievement_array = new ArrayList<>();
 
@@ -33,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Achievement_array.add(true);
-        Achievement_array.add(false);
-        Achievement_array.add(false);
-        Achievement_array.add(false);
-        Achievement_array.add(false);
+
+        for (int i = 0; i < 6; i++){
+            Achievement_array.add(Boolean.FALSE);
+        }
+
         TextView textView = (TextView)findViewById(R.id.QA_correct_question_number);
         textView.setText("上次總共答對 " + QA.correct_question_number + " 題");
         final Intent intent = new Intent();

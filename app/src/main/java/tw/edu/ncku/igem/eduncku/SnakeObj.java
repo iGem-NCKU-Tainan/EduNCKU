@@ -387,4 +387,6 @@ public class SnakeObj {
         return Rect.intersects(apple.getRect(), head.getRect());
     }
 
+
+
 }
