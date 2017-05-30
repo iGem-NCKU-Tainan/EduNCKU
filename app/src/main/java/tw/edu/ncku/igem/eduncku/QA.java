@@ -226,15 +226,12 @@ public class QA extends AppCompatActivity
 
     public void click_a(View view)
     {
-<<<<<<< HEAD
+
         if (count == 0)
             count++; //Every time clicking a button the count will increase by 1
         if(answer == 1)
         {
-=======
-        count++;//Every time clinking a button the count will increase by 1
-        if(answer == 1){
->>>>>>> ca2b1cec7e7057cee526bab0ac91729bdd18b561
+
             m_tv_check_a0.setVisibility(View.VISIBLE);
             m_tv_check_a1.setVisibility(View.GONE);
             m_radio_a.setBackgroundColor(Color.GREEN);
@@ -250,15 +247,14 @@ public class QA extends AppCompatActivity
     }
     public void click_b(View view)
     {
-<<<<<<< HEAD
+
         if (count == 1)
             count++;
         if (answer == 2)
         {
-=======
-        count++;
-        if(answer == 2){
->>>>>>> ca2b1cec7e7057cee526bab0ac91729bdd18b561
+
+            count++;
+
             m_tv_check_b0.setVisibility(View.VISIBLE);
             m_tv_check_b1.setVisibility(View.GONE);
             m_radio_b.setBackgroundColor(Color.GREEN);
@@ -274,15 +270,12 @@ public class QA extends AppCompatActivity
     }
     public void click_c(View view)
     {
-<<<<<<< HEAD
+
         if (count == 2)
             count++;
         if (answer == 3)
         {
-=======
-        count++;
-        if(answer == 3){
->>>>>>> ca2b1cec7e7057cee526bab0ac91729bdd18b561
+
             m_tv_check_c0.setVisibility(View.VISIBLE);
             m_tv_check_c1.setVisibility(View.GONE);
             m_radio_c.setBackgroundColor(Color.GREEN);
