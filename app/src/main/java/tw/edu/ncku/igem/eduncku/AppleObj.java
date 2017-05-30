@@ -22,7 +22,7 @@ public class AppleObj extends GameObj{
      */
     public void random(Rect limitRect){
         this.actRect=limitRect;
-        this.moveTo(actRect.left+r.nextInt(actRect.width()-this.getWidth()),actRect.top+r.nextInt(actRect.height()-this.getHeight()));
+        this.moveTo(actRect.left + r.nextInt(actRect.width() - this.getWidth()), actRect.top + r.nextInt(actRect.height() - this.getHeight()));
     }
 
     /**

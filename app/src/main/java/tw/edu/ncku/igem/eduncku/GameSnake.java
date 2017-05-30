@@ -34,6 +34,9 @@ public class GameSnake extends Activity {
     AppleObj apple;
     GameStat gameStat;
 
+    // Else Achievement's point (apple)
+    AppleObj blue_point;
+
     private Toast toast;
 
     private int eaten_apple_num = 0;
@@ -209,9 +212,13 @@ public class GameSnake extends Activity {
         nowDrawWork = drawAction.ready;
         Resources rs = getResources();
         snake = new SnakeObj(GameSnake.this, backimg.getRect());
-        apple = new AppleObj(rs.getDrawable(R.drawable.apple, null), backimg
-                .getRect());
+        apple = new AppleObj(rs.getDrawable(R.drawable.apple, null), backimg.getRect());
         apple.random(backimg.getRect());
+
+        blue_point = new AppleObj(rs.getDrawable(R.drawable.blue, null), backimg.getRect());
+        blue_point.random(backimg.getRect());
+
+
         gameStat = new GameStat(System.currentTimeMillis() + 3000);
         gameThreadStart();
     }
@@ -334,6 +341,32 @@ public class GameSnake extends Activity {
             while (snake.isEatApple(apple))
                 apple.random(backimg.getRect());
         }
+
+        // 吃到path element處理
+        if (snake.isEatApple(blue_point)) {
+            // 增加長度
+            snake.add();
+            //showTip("The length of snake have been added");
+            // 增加時間
+            gameStat.addTime(3000);
+
+            // Record the num    of apples have been eaten
+            //eaten_apple_num++;
+            switch (eaten_apple_num){
+                case 1:
+                    showTip("The First apple u have got!!");
+                    break;
+                case 5:
+                    showTip("Bravo! U got the fifth ones");
+                    break;
+                default:
+                    break;
+            }
+
+            // 蘋果位置變更
+            while (snake.isEatApple(blue_point))
+                blue_point.random(backimg.getRect());
+        }
         // 更新遊戲分數
         gameStat.updateScroe(snake.getLength());
 
@@ -358,6 +391,7 @@ public class GameSnake extends Activity {
         Canvas canvas = null;
         try {
             canvas = surfaceHolder.lockCanvas(null);
+
             synchronized (surfaceHolder) {
                 draw(action, canvas);
             }
@@ -403,6 +437,9 @@ public class GameSnake extends Activity {
     void drawGame(Canvas canvas) {
         clear(canvas);
         apple.draw(canvas);
+
+        blue_point.draw(canvas);
+
         snake.draw(canvas);
         gameStat.draw(canvas);
         touchPoint.draw(canvas);

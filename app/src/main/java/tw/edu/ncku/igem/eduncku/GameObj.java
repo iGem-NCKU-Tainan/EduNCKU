@@ -104,8 +104,7 @@ public class GameObj {
     public void moveTo(int newLeft, int newTop) {
         if (Enable) {
             Rect rect = drawable.getBounds();
-            drawable.setBounds(newLeft, newTop, newLeft + rect.width(), newTop
-                    + rect.height());
+            drawable.setBounds(newLeft, newTop, newLeft + rect.width(), newTop + rect.height());
         }
     }
 
