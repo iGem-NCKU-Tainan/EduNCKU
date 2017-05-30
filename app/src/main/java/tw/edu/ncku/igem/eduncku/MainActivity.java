@@ -13,6 +13,17 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    /*
+                目前成就設計
+                1. 吃到1顆蘋果
+                2. 指定path 1
+                3. 指定path 2
+                4. 指定path 3
+                5. 指定path 4
+                6. 指定path 5
+                7.
+                8.
+        */
     static ArrayList<Boolean> Achievement_array = new ArrayList<>();
 
     private Button snake_btn;
