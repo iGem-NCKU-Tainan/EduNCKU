@@ -32,9 +32,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         for (int i = 0; i < 6; i++){
             Achievement_array.add(Boolean.FALSE);
         }
+
 
         TextView textView = (TextView)findViewById(R.id.QA_correct_question_number);
         textView.setText("上次總共答對 " + QA.correct_question_number + " 題");

@@ -18,8 +18,13 @@
         </activity>
         <activity android:name=".GameSnake" />
         <activity android:name=".Achievement" />
+<<<<<<< HEAD
         <activity android:name=".QA">
         </activity>
+=======
+        <activity android:name=".QA" />
+        <activity android:name=".Achievement_intro"></activity>
+>>>>>>> ca2b1cec7e7057cee526bab0ac91729bdd18b561
     </application>
 
 </manifest>
