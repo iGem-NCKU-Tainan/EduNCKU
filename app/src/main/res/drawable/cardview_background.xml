@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <gradient
+        android:id="@+id/cardview_background"
         android:startColor="#E0EAFC"
         android:centerColor="#b6fbff"
         android:endColor="#E0EAFC"
