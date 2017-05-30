@@ -51,7 +51,7 @@ public class Achievement extends AppCompatActivity {
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mCardView.setCardBackgroundColor(Color.parseColor("#E27386"));
+                        mCardView.setCardBackgroundColor(Color.parseColor("#64a52c62"));
                     }
                 });
             }
@@ -73,7 +73,7 @@ public class Achievement extends AppCompatActivity {
         public void onBindViewHolder(ViewHolder holder, int position) {
                 holder.mTextView.setText(mData.get(position));
                 if(MainActivity.Achievement_array.get(position) == true) {
-                    holder.mCardView.setCardBackgroundColor(Color.parseColor("#B8F1CC"));
+                    holder.mCardView.setCardBackgroundColor(Color.parseColor("#642ca53a"));
                 }
 
         }

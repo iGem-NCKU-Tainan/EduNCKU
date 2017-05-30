@@ -5,18 +5,18 @@
     android:id="@+id/card_view"
     android:layout_gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="125dp"
     card_view:cardCornerRadius="4dp"
     android:layout_marginLeft="@dimen/cardViewMargin"
     android:layout_marginTop="@dimen/cardViewMargin"
     android:layout_marginBottom="@dimen/cardViewMargin"
     android:layout_marginRight="@dimen/cardViewMargin"
-    android:layout_margin="5dp"
+    card_view:cardBackgroundColor="@color/transparent"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="vertical">
 
         <!--<ImageView-->
@@ -30,7 +30,7 @@
             android:id="@+id/info_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:layout_margin="4dp"
             android:gravity="center"
             />

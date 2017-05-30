@@ -8,4 +8,6 @@
     <color name="qaButtonColor">#32fffcf9</color>
     <color name="transparent">#00000000</color>
     <color name="qaTextColor">#000428</color>
+    <color name="trueColor">#642ca53a</color>
+    <color name="falseColor">#64a52c62</color>
 </resources>
