@@ -89,9 +89,7 @@ public class QA extends AppCompatActivity
 
     public void click_a(View view)
     {
-        if (count == 0)
-            count++;//Every time clinking a button the count will increase by 1
-
+        count++;//Every time clinking a button the count will increase by 1
         if(answer == 1){
             m_tv_check_a0.setVisibility(View.VISIBLE);
             m_tv_check_a1.setVisibility(View.GONE);
@@ -108,10 +106,7 @@ public class QA extends AppCompatActivity
     }
     public void click_b(View view)
     {
-        if (count == 1)
-            count++;
-
-
+        count++;
         if(answer == 2){
             m_tv_check_b0.setVisibility(View.VISIBLE);
             m_tv_check_b1.setVisibility(View.GONE);
@@ -128,9 +123,7 @@ public class QA extends AppCompatActivity
     }
     public void click_c(View view)
     {
-        if (count == 2)
-            count++;
-
+        count++;
         if(answer == 3){
             m_tv_check_c0.setVisibility(View.VISIBLE);
             m_tv_check_c1.setVisibility(View.GONE);
@@ -148,6 +141,7 @@ public class QA extends AppCompatActivity
 
     //返回上一頁
     public void back(View view) {
+        question_number = 1;
         finish();
     }
     // 按下 NEXT
