@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Achievement_array.add(false);
         Achievement_array.add(false);
         Achievement_array.add(false);
+        Achievement_array.add(false);
         TextView textView = (TextView)findViewById(R.id.QA_correct_question_number);
         textView.setText("上次總共答對 " + QA.correct_question_number + " 題");
         final Intent intent = new Intent();
