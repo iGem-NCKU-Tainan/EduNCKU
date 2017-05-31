@@ -377,6 +377,7 @@ public class GameSnake extends Activity {
         // 更新貪食蛇
         snake.update();
 
+
         // 吃到蘋果處理
         if (snake.isEatApple(apple)) {
             // 增加長度
@@ -386,79 +387,54 @@ public class GameSnake extends Activity {
             gameStat.addTime(3000);
 
             // Record the num    of apples have been eaten
-            /*
-                            eaten_apple_num++;
-                            switch (eaten_apple_num){
-                                case 1:
-                                    showTip("The First apple u have got!!");
-                                    break;
-                                case 5:
-                                    showTip("Bravo! U got the fifth ones");
-                                    break;
-                                default:
-                                    break;
-                            }
-                        */
+            eaten_apple_num++;
+            switch (eaten_apple_num){
+                case 1:
+                    showTip("The First apple u have got!!");
+                    break;
+                case 5:
+                    showTip("Bravo! U got the fifth ones");
+                    break;
+                default:
+                    break;
+            }
             // 蘋果位置變更
             if (snake.isEatApple(apple))
                 apple.random(backimg.getRect());
         }
-
-        // 吃到蘋果處理
-        if (snake.isEatApple(blue_point)) {
-            // 增加長度
-            snake.add();
-
-            // 增加時間
-            gameStat.addTime(3000);
-
-            // Record the num    of apples have been eaten
-            /*
-                            eaten_apple_num++;
-                            switch (eaten_apple_num){
-                                case 1:
-                                    showTip("The First apple u have got!!");
-                                    break;
-                                case 5:
-                                    showTip("Bravo! U got the fifth ones");
-                                    break;
-                                default:
-                                    break;
-                            }
-                        */
-            // 蘋果位置變更
-            if (snake.isEatApple(blue_point))
-                blue_point.random(backimg.getRect());
+        set_element();
+/*
+        int eaten_element = -1;
+        if (snake.isEatApple(promoter)){
+            eaten_element = 1;
+        }
+        else if (snake.isEatApple(terminator)){
+            eaten_element = 2;
+        }
+        else if (snake.isEatApple(pentagon)){
+            eaten_element = 3;
+        }
+        else if (snake.isEatApple(rhombus)){
+            eaten_element = 4;
+        }
+        else if (snake.isEatApple(triangle)){
+            eaten_element = 5;
+        }
+        else if (snake.isEatApple(green)){
+            eaten_element = 6;
+        }
+        else if (snake.isEatApple(red)){
+            eaten_element = 7;
+        }
+        else if (snake.isEatApple(star)){
+            eaten_element = 8;
         }
 
+        set_element();
+/*
         // 吃到path element處理
-        if (snake.isEatApple(promoter) || snake.isEatApple(terminator) || snake.isEatApple(pentagon) || snake.isEatApple(rhombus) || snake.isEatApple(triangle) || snake.isEatApple(green) || snake.isEatApple(red) || snake.isEatApple(star)) {
-
-            int eaten_element = -1;
-            if (snake.isEatApple(promoter)){
-                eaten_element = 1;
-            }
-            else if (snake.isEatApple(terminator)){
-                eaten_element = 2;
-            }
-            else if (snake.isEatApple(pentagon)){
-                eaten_element = 3;
-            }
-            else if (snake.isEatApple(rhombus)){
-                eaten_element = 4;
-            }
-            else if (snake.isEatApple(triangle)){
-                eaten_element = 5;
-            }
-            else if (snake.isEatApple(green)){
-                eaten_element = 6;
-            }
-            else if (snake.isEatApple(red)){
-                eaten_element = 7;
-            }
-            else if (snake.isEatApple(star)){
-                eaten_element = 8;
-            }
+        //if (snake.isEatApple(promoter) || snake.isEatApple(terminator) || snake.isEatApple(pentagon) || snake.isEatApple(rhombus) || snake.isEatApple(triangle) || snake.isEatApple(green) || snake.isEatApple(red) || snake.isEatApple(star)) {
+         if (eaten_element != -1) {
 
 
             // 增加長度
@@ -488,12 +464,12 @@ public class GameSnake extends Activity {
                 }
             }
 
-            //showTip(Integer.toString(achievement_elements_table[current_achievement_i][current_achievement_j]));
+            //showTip("12131313");
             // Element位置變更
             set_element_location();
 
-
         }
+        */
         // 更新遊戲分數
         gameStat.updateScroe(snake.getLength());
 
@@ -504,7 +480,135 @@ public class GameSnake extends Activity {
         }
 
     }
-    private void set_element_location(){
+    private void set_element(){
+
+        // 吃到蘋果處理
+        if (snake.isEatApple(promoter) && achievement_elements_table[current_achievement_i][current_achievement_j] == 1) {
+            // 增加長度
+            snake.add();
+
+            // 增加時間
+            gameStat.addTime(3000);
+
+
+            current_achievement_j++;
+            // 蘋果位置變更
+            //promoter.random(backimg.getRect());
+            set_element_location();
+
+        }
+        else if (snake.isEatApple(terminator) && achievement_elements_table[current_achievement_i][current_achievement_j] == 2) {
+            // 增加長度
+            snake.add();
+
+            // 增加時間
+            gameStat.addTime(3000);
+
+            current_achievement_i++;
+            current_achievement_j = 0;
+            // 蘋果位置變更
+            //terminator.random(backimg.getRect());
+            set_element_location();
+        }
+        else if (snake.isEatApple(pentagon) && achievement_elements_table[current_achievement_i][current_achievement_j] == 3) {
+            // 增加長度
+            snake.add();
+
+            // 增加時間
+            gameStat.addTime(3000);
+
+            current_achievement_j++;
+            // 蘋果位置變更
+            //pentagon.random(backimg.getRect());
+            set_element_location();
+        }
+        else if (snake.isEatApple(rhombus) && achievement_elements_table[current_achievement_i][current_achievement_j] == 4) {
+            // 增加長度
+            snake.add();
+
+            // 增加時間
+            gameStat.addTime(3000);
+
+            current_achievement_j++;
+            // 蘋果位置變更
+            //rhombus.random(backimg.getRect());
+            set_element_location();
+        }
+        else if (snake.isEatApple(triangle) && achievement_elements_table[current_achievement_i][current_achievement_j] == 5) {
+            // 增加長度
+            snake.add();
+
+            // 增加時間
+            gameStat.addTime(3000);
+
+            current_achievement_j++;
+            // 蘋果位置變更
+            //triangle.random(backimg.getRect());
+            set_element_location();
+        }
+        else if (snake.isEatApple(green) && achievement_elements_table[current_achievement_i][current_achievement_j] == 6) {
+            // 增加長度
+            snake.add();
+
+            // 增加時間
+            gameStat.addTime(3000);
+
+            current_achievement_j++;
+            // 蘋果位置變更
+            //green.random(backimg.getRect());
+            set_element_location();
+        }
+        else if (snake.isEatApple(red) && achievement_elements_table[current_achievement_i][current_achievement_j] == 7) {
+            // 增加長度
+            snake.add();
+
+            // 增加時間
+            gameStat.addTime(3000);
+
+            current_achievement_j++;
+            // 蘋果位置變更
+            //red.random(backimg.getRect());
+            set_element_location();
+        }
+        else if (snake.isEatApple(star) && achievement_elements_table[current_achievement_i][current_achievement_j] == 8) {
+            // 增加長度
+            snake.add();
+
+            // 增加時間
+            gameStat.addTime(3000);
+
+            current_achievement_j++;
+            // 蘋果位置變更
+            //star.random(backimg.getRect());
+            set_element_location();
+        }
+
+        /*
+        // Compare the element which was just eaten to the element in achievement_elements_table
+        if (eaten_element == achievement_elements_table[current_achievement_i][current_achievement_j]){
+            //elements_collecting_status[current_achievement_i][current_achievement_j] = Boolean.TRUE;
+
+            if (eaten_element == 2){
+                MainActivity.Achievement_array.set(current_achievement_i, Boolean.TRUE); // Unlock the Achievement
+                current_achievement_i++;
+                current_achievement_j = 0;
+            }
+            else {
+                //current_achievement_i++;
+                current_achievement_j++;
+            }
+
+            if (current_achievement_i == 6){
+                ///////////////////////////////////////////////////////////////////////////// End the Game
+                showTip("You have completed this game, Congrat !");
+                end_game();
+            }
+        }
+        */
+    }
+
+    void set_element_location(){
+
         switch (achievement_elements_table[current_achievement_i][current_achievement_j]){
             case 1:
                 promoter.random(backimg.getRect());
@@ -649,7 +753,7 @@ public class GameSnake extends Activity {
         clear(canvas);
         apple.draw(canvas);
 
-        //blue_point.draw(canvas);
+
         switch (achievement_elements_table[current_achievement_i][current_achievement_j]){
             case 1:
                 promoter.draw(canvas);
