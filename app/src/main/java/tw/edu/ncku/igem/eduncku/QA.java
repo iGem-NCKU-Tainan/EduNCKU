@@ -15,7 +15,7 @@ public class QA extends AppCompatActivity
     // the answers of the questions
     public static int answer_array[] =
             {1, 4, 2, 2, 1, 4, 3,
-            3, 1, 2, 2, 4,
+            3, 2, 2, 3, 4,
             1, 3, 4, 2, 3};
     public static int correct_question_number;
     public static String question_content[][] = {
@@ -78,7 +78,7 @@ public class QA extends AppCompatActivity
                     "火車經過時會有電磁波，對身體不好"
             },
             {
-                    "風是怎麼吹的？", // question2, answer = 1
+                    "風是怎麼吹的？", // question2, answer = 2
                     "從氣度高吹到氣溫低",
                     "從氣壓高吹到氣壓低",
                     "從溼度高吹到濕度低",
@@ -92,7 +92,7 @@ public class QA extends AppCompatActivity
                     "都有可能"
             },
             {
-                    "颱風在北半球是怎麼旋轉的？", // question4, answer = 2
+                    "颱風在北半球是怎麼旋轉的？", // question4, answer = 3
                     "不會旋轉",
                     "順時針旋轉",
                     "逆時針旋轉",
