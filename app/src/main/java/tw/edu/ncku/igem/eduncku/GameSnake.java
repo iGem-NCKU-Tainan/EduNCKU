@@ -43,7 +43,7 @@ public class GameSnake extends Activity {
     AppleObj green;
     AppleObj red;
     AppleObj star;
-    AppleObj blue_point;
+    //AppleObj blue_point;
 
     // Record the order of element in each Achievement
     int achievement_elements_table[][];
@@ -230,8 +230,10 @@ public class GameSnake extends Activity {
         apple = new AppleObj(rs.getDrawable(R.drawable.apple, null), backimg.getRect());
         apple.random(backimg.getRect());
 
-        blue_point = new AppleObj(rs.getDrawable(R.drawable.blue, null), backimg.getRect());
-        blue_point.random(backimg.getRect());
+        /*
+                        blue_point = new AppleObj(rs.getDrawable(R.drawable.blue, null), backimg.getRect());
+                        blue_point.random(backimg.getRect());
+                */
 
         // Initializing the elements for Achievements
         promoter = new AppleObj(rs.getDrawable(R.drawable.promoter, null), backimg.getRect());
@@ -654,7 +656,7 @@ public class GameSnake extends Activity {
                 break;
         }
 
-        blue_point.draw(canvas);
+        //blue_point.draw(canvas);
 
         snake.draw(canvas);
         gameStat.draw(canvas);

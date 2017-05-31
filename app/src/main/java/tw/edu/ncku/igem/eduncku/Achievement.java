@@ -98,10 +98,8 @@ public class Achievement extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode){
             case KeyEvent.KEYCODE_MENU:
-                showTip("MENU");
-
-
-
+                Intent intent = new Intent(Achievement.this, path_outlook.class);
+                startActivity(intent);
 
                 return Boolean.TRUE;
         }

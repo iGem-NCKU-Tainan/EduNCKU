@@ -9,19 +9,18 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".GameSnake" />
         <activity android:name=".Achievement" />
-
         <activity android:name=".QA" />
-        <activity android:name=".Achievement_intro"></activity>
-
+        <activity android:name=".Achievement_intro" />
+        <activity android:name=".path_outlook"></activity>
     </application>
 
 </manifest>
