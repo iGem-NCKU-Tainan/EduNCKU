@@ -21,13 +21,6 @@ public class QA extends AppCompatActivity
     public static String question_content[][] = {
             // week2
             {
-
-                    "請問飛機可以飛上天運用到的原理是?",//The first string is the question
-                    "白努利定律",//Choice 1
-                    "牛頓定律",//Choice 2
-                    "愛因斯坦相對論"//Choice 3
-            },
-            {
                     "請問什麼樣的液體可以讓燈泡最亮？", // question1, answer = 1
                     "鹽水",
                     "糖水",
@@ -80,7 +73,7 @@ public class QA extends AppCompatActivity
             // week3
             {
                     "為什麼在月台的時候要站在黃線後面呢？", // question1, answer = 3
-                    "因為火車經過的時候會產生高氣壓，如果在附近容易因為氣壓的流動而被吸過去",
+                    "火車經過時會產生高氣壓，站附近容易因氣壓流動而被吸過去",
                     "這樣離賣鐵路便當的小店比較近，方便買便當",
                     "因為白努力定律，火車經過時可能會被吸過去而發生危險",
                     "火車經過時會有電磁波，對身體不好"
