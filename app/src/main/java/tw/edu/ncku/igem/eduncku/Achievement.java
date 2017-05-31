@@ -55,7 +55,7 @@ public class Achievement extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         //mCardView.setCardBackgroundColor(Color.parseColor("#64a52c62"));
-                        if(MainActivity.Achievement_array.get(position) == true) {
+                        if(MainActivity.Achievement_array.get(position) == true && position != 0) {
                             Intent intent = new Intent(Achievement.this, Achievement_intro.class);
                             intent.putExtra("position", position);
                             startActivity(intent);

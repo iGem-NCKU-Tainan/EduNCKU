@@ -21,7 +21,7 @@ public class Achievement_intro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement_intro);
         Intent intent = getIntent();
-        position = intent.getIntExtra("position",0);
+        position = (intent.getIntExtra("position",0) - 1);
         TextView textView = (TextView) findViewById(R.id.intro_title);
         textView.setText(intro[position][0]);
         textView = (TextView) findViewById(R.id.intro_body);
