@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Achievement extends AppCompatActivity {
-
+    private Toast toast;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,8 @@ public class Achievement extends AppCompatActivity {
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mList.setLayoutManager(layoutManager);
         mList.setAdapter(myAdapter);
+
+        toast = Toast.makeText(this, "", Toast.LENGTH_LONG);
     }
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         private List<String> mData;
@@ -89,5 +92,23 @@ public class Achievement extends AppCompatActivity {
         public int getItemCount() {
             return mData.size();
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode){
+            case KeyEvent.KEYCODE_MENU:
+                showTip("MENU");
+
+
+
+
+                return Boolean.TRUE;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+    private void showTip(final String str) {
+        toast.setText(str);
+        toast.show();
     }
 }

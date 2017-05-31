@@ -67,8 +67,7 @@ public class GameSnake extends Activity {
 
 
         // 隱藏狀態列
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         // 隱藏視窗標題
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -92,8 +91,7 @@ public class GameSnake extends Activity {
                     Resources rs = getResources();
                     backimg = new GameObj(rs.getDrawable(R.drawable.backing, null));
                     SurfaceView sv = gameSurfaceView;
-                    backimg.setRect(new Rect(sv.getLeft(), sv.getTop(), sv
-                            .getRight(), sv.getBottom()));
+                    backimg.setRect(new Rect(sv.getLeft(), sv.getTop(), sv.getRight(), sv.getBottom()));
                     readyGame();
                 } else {
                     // 經由Activity返回載入時
@@ -286,7 +284,7 @@ public class GameSnake extends Activity {
 
     // 開始遊戲
     void startGame() {
-        gameStat = new GameStat(System.currentTimeMillis() + 300000000);
+        gameStat = new GameStat(System.currentTimeMillis() + 30000);
         nowDrawWork = drawAction.game;
     }
 
@@ -390,11 +388,13 @@ public class GameSnake extends Activity {
             eaten_apple_num++;
             switch (eaten_apple_num){
                 case 1:
-                    showTip("The First apple u have got!!");
+                    showTip("你吃到一顆蘋果了");
                     break;
                 case 5:
-                    showTip("Bravo! U got the fifth ones");
+                    showTip("這是第五顆蘋果");
                     break;
+                case 9999:
+                    showTip("解鎖超級任務");
                 default:
                     break;
             }
@@ -403,79 +403,13 @@ public class GameSnake extends Activity {
                 apple.random(backimg.getRect());
         }
         set_element();
-/*
-        int eaten_element = -1;
-        if (snake.isEatApple(promoter)){
-            eaten_element = 1;
-        }
-        else if (snake.isEatApple(terminator)){
-            eaten_element = 2;
-        }
-        else if (snake.isEatApple(pentagon)){
-            eaten_element = 3;
-        }
-        else if (snake.isEatApple(rhombus)){
-            eaten_element = 4;
-        }
-        else if (snake.isEatApple(triangle)){
-            eaten_element = 5;
-        }
-        else if (snake.isEatApple(green)){
-            eaten_element = 6;
-        }
-        else if (snake.isEatApple(red)){
-            eaten_element = 7;
-        }
-        else if (snake.isEatApple(star)){
-            eaten_element = 8;
-        }
 
-        set_element();
-/*
-        // 吃到path element處理
-        //if (snake.isEatApple(promoter) || snake.isEatApple(terminator) || snake.isEatApple(pentagon) || snake.isEatApple(rhombus) || snake.isEatApple(triangle) || snake.isEatApple(green) || snake.isEatApple(red) || snake.isEatApple(star)) {
-         if (eaten_element != -1) {
-
-
-            // 增加長度
-            snake.add();
-
-            // 增加時間
-            gameStat.addTime(3000);
-
-            // Compare the element which was just eaten to the element in achievement_elements_table
-            if (eaten_element == achievement_elements_table[current_achievement_i][current_achievement_j]){
-                //elements_collecting_status[current_achievement_i][current_achievement_j] = Boolean.TRUE;
-
-                if (eaten_element == 2){
-                    MainActivity.Achievement_array.set(current_achievement_i, Boolean.TRUE); // Unlock the Achievement
-                    current_achievement_i++;
-                    current_achievement_j = 0;
-                }
-                else {
-                    //current_achievement_i++;
-                    current_achievement_j++;
-                }
-
-                if (current_achievement_i == 6){
-                    ///////////////////////////////////////////////////////////////////////////// End the Game
-                    showTip("You have completed this game, Congrat !");
-                    end_game();
-                }
-            }
-
-            //showTip("12131313");
-            // Element位置變更
-            set_element_location();
-
-        }
-        */
         // 更新遊戲分數
         gameStat.updateScroe(snake.getLength());
 
         // 判斷是否結束遊戲
         if (gameStat.isTimeOver()){
-            showTip("You are dead");
+            showTip("你已經死了 !");
             end_game();
         }
 
@@ -504,8 +438,15 @@ public class GameSnake extends Activity {
             // 增加時間
             gameStat.addTime(3000);
 
+            MainActivity.Achievement_array.set(current_achievement_i, Boolean.TRUE); // Unlock the achievement in Achievement.java
+
             current_achievement_i++;
             current_achievement_j = 0;
+
+
+            if (current_achievement_i == 6){
+                end_game(); // Avoid overflow
+            }
             // 蘋果位置變更
             //terminator.random(backimg.getRect());
             set_element_location();
@@ -583,28 +524,6 @@ public class GameSnake extends Activity {
             set_element_location();
         }
 
-        /*
-        // Compare the element which was just eaten to the element in achievement_elements_table
-        if (eaten_element == achievement_elements_table[current_achievement_i][current_achievement_j]){
-            //elements_collecting_status[current_achievement_i][current_achievement_j] = Boolean.TRUE;
-
-            if (eaten_element == 2){
-                MainActivity.Achievement_array.set(current_achievement_i, Boolean.TRUE); // Unlock the Achievement
-                current_achievement_i++;
-                current_achievement_j = 0;
-            }
-            else {
-                //current_achievement_i++;
-                current_achievement_j++;
-            }
-
-            if (current_achievement_i == 6){
-                ///////////////////////////////////////////////////////////////////////////// End the Game
-                showTip("You have completed this game, Congrat !");
-                end_game();
-            }
-        }
-        */
     }
 
     void set_element_location(){
@@ -638,55 +557,7 @@ public class GameSnake extends Activity {
                 break;
         }
     }
-    /*
-    private void set_element_location(){
 
-        switch (achievement_elements_table[current_achievement_i][current_achievement_j]){
-            case 1:
-                if (snake.isEatApple(promoter)){
-                    promoter.random(backimg.getRect());
-                }
-                break;
-            case 2:
-                if (snake.isEatApple(terminator)){
-                    terminator.random(backimg.getRect());
-                }
-                break;
-            case 3:
-                if (snake.isEatApple(pentagon)){
-                    pentagon.random(backimg.getRect());
-                }
-                break;
-            case 4:
-                if (snake.isEatApple(rhombus)){
-                    rhombus.random(backimg.getRect());
-                }
-                break;
-            case 5:
-                if (snake.isEatApple(triangle)){
-                    triangle.random(backimg.getRect());
-                }
-                break;
-            case 6:
-                if (snake.isEatApple(green)){
-                    green.random(backimg.getRect());
-                }
-                break;
-            case 7:
-                if (snake.isEatApple(red)){
-                    red.random(backimg.getRect());
-                }
-                break;
-            case 8:
-                if (snake.isEatApple(star)){
-                    star.random(backimg.getRect());
-                }
-                break;
-            default:
-                break;
-        }
-    }
-    */
     private void end_game(){
         nowDrawWork = drawAction.over;
         gameThread.interrupt();
