@@ -1,5 +1,6 @@
 package tw.edu.ncku.igem.eduncku;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.graphics.Color;
@@ -18,8 +19,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import static tw.edu.ncku.igem.eduncku.MainActivity.Achievement_array;
-
 public class Achievement extends AppCompatActivity {
 
     @Override
@@ -27,11 +26,12 @@ public class Achievement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement);
         ArrayList<String> myDataset = new ArrayList<>();
-        myDataset.add("吃掉一個蘋果");
-        myDataset.add("吃掉兩個蘋果");
-        myDataset.add("吃掉三個蘋果");
-        myDataset.add("吃掉四個蘋果");
-        myDataset.add("吃掉五個蘋果");
+        myDataset.add("吃到一個蘋果");
+        myDataset.add("PATH 1");
+        myDataset.add("PATH 2");
+        myDataset.add("PATH 3");
+        myDataset.add("PATH 4");
+        myDataset.add("PATH 5");
         MyAdapter myAdapter = new MyAdapter(myDataset);
         RecyclerView mList = (RecyclerView) findViewById(R.id.list_view);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -43,16 +43,23 @@ public class Achievement extends AppCompatActivity {
         private List<String> mData;
 
         public class ViewHolder extends RecyclerView.ViewHolder {
+            public int position;
             public TextView mTextView;
             public CardView mCardView;
             public ViewHolder(View v) {
                 super(v);
+                position = 0;
                 mTextView = (TextView) v.findViewById(R.id.info_text);
                 mCardView = (CardView) v.findViewById(R.id.card_view);
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mCardView.setCardBackgroundColor(Color.parseColor("#64a52c62"));
+                        //mCardView.setCardBackgroundColor(Color.parseColor("#64a52c62"));
+                        if(MainActivity.Achievement_array.get(position) == true) {
+                            Intent intent = new Intent(Achievement.this, Achievement_intro.class);
+                            intent.putExtra("position", position);
+                            startActivity(intent);
+                        }
                     }
                 });
             }
@@ -72,6 +79,7 @@ public class Achievement extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
+                holder.position = position;
                 holder.mTextView.setText(mData.get(position));
                 if(MainActivity.Achievement_array.get(position) == true) {
                     holder.mCardView.setCardBackgroundColor(Color.parseColor("#642ca53a"));

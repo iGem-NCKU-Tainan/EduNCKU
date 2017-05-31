@@ -21,11 +21,19 @@ public class QA extends AppCompatActivity
     public static String question_content[][] = {
             // week2
             {
+
+                    "請問飛機可以飛上天運用到的原理是?",//The first string is the question
+                    "白努利定律",//Choice 1
+                    "牛頓定律",//Choice 2
+                    "愛因斯坦相對論"//Choice 3
+            },
+            {
                     "請問什麼樣的液體可以讓燈泡最亮？", // question1, answer = 1
                     "鹽水",
                     "糖水",
                     "自來水",
                     "以上皆是"
+
             },
             {
                     "請問一個水溶液中性代表ph值等於多少？", // question2, answer = 4
@@ -164,22 +172,26 @@ public class QA extends AppCompatActivity
     private int answer = 0;
     private int count = 0;
     private CharSequence m_answer;
+
     static int question_number = 1;//the current question
     final int the_number_of_question = 17;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qa);
-        init(); // initialize
-        Intent intent = getIntent();
-        if(question_number == 1){
-            answer = answer_array[0]; // set the answer of the first question
-            correct_question_number = 0;
+
+        init();//initialize
+        Intent intent = getIntent();//This activity is a self-cycling activity. It will call itself
+        if(question_number == 1){//by calling intent
+            answer = answer_array[0];//Because there's no intent at first, We
+            correct_question_number = 0;// set the answer of the first question manually.
         }
-        else if(intent != null){
-            answer = intent.getIntExtra("answer", 0);
+        else if(intent != null){//If there's an intent coming, we capture it by getIntExtra.
+            answer = intent.getIntExtra("answer",0);
+
         }
     }
 
@@ -214,10 +226,12 @@ public class QA extends AppCompatActivity
 
     public void click_a(View view)
     {
+
         if (count == 0)
             count++; //Every time clicking a button the count will increase by 1
         if(answer == 1)
         {
+
             m_tv_check_a0.setVisibility(View.VISIBLE);
             m_tv_check_a1.setVisibility(View.GONE);
             m_radio_a.setBackgroundColor(Color.GREEN);
@@ -233,10 +247,14 @@ public class QA extends AppCompatActivity
     }
     public void click_b(View view)
     {
+
         if (count == 1)
             count++;
         if (answer == 2)
         {
+
+            count++;
+
             m_tv_check_b0.setVisibility(View.VISIBLE);
             m_tv_check_b1.setVisibility(View.GONE);
             m_radio_b.setBackgroundColor(Color.GREEN);
@@ -252,10 +270,12 @@ public class QA extends AppCompatActivity
     }
     public void click_c(View view)
     {
+
         if (count == 2)
             count++;
         if (answer == 3)
         {
+
             m_tv_check_c0.setVisibility(View.VISIBLE);
             m_tv_check_c1.setVisibility(View.GONE);
             m_radio_c.setBackgroundColor(Color.GREEN);
@@ -291,6 +311,7 @@ public class QA extends AppCompatActivity
 
     //返回上一頁
     public void back(View view) {
+        question_number = 1;
         finish();
     }
     // 按下 NEXT
@@ -305,7 +326,7 @@ public class QA extends AppCompatActivity
             finish();
         }
         else{
-            question_number = 1;
+            question_number = 1;//reset the pointer of the question.
             finish();
         }
     }

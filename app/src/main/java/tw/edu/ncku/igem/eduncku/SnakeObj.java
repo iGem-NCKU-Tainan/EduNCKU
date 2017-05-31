@@ -347,7 +347,7 @@ public class SnakeObj {
 
     //增加身體長度
     public void add() {
-        exGameObj newBody = new exGameObj(tail, rs.getDrawable(R.drawable.body));
+        exGameObj newBody = new exGameObj(tail, rs.getDrawable(R.drawable.body, null));
         newBody.nextMove.set(tail.nextMove.x, tail.nextMove.y);
 
         for (int i = 0; i < tail.logPath.length; i++) {
@@ -386,5 +386,7 @@ public class SnakeObj {
     public boolean isEatApple(GameObj apple) {
         return Rect.intersects(apple.getRect(), head.getRect());
     }
+
+
 
 }
