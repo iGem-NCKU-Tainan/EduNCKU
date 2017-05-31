@@ -4,9 +4,10 @@
     <dimen name="mainButtonHeight">50dp</dimen>
     <dimen name="mainButtonWidth">220dp</dimen>
     <dimen name="qaAnswerRadius">7.5dp</dimen>
-    <dimen name="qaButtonHeight">40dp</dimen>
-    <dimen name="qaButtonWidth">200dp</dimen>
-    <dimen name="qaButtonTextSize">20sp</dimen>
+    <dimen name="qaButtonHeight">50dp</dimen>
+    <dimen name="qaButtonWidth">270dp</dimen>
+    <dimen name="qaButtonTextSize">18sp</dimen>
     <dimen name="buttonStrokeWidth">2dp</dimen>
     <dimen name="cardViewMargin">10dp</dimen>
+    <dimen name="oxPaddingButton">7dp</dimen>
 </resources>
